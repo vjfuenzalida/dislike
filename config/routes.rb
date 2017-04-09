@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   get 'maps', to: "maps#index"
+  get 'maps/show', to: "maps#show"
+
 
   resources :topics
   resources :votes
+
+
 
   devise_for :users
   root 'home#index'
