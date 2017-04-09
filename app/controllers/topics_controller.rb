@@ -7,7 +7,7 @@ class TopicsController < ApplicationController
   end
 
   def display
-    @topics = Topic.all
+    @topics = Topic.all.order('votes desc')
   end
 
   def show
