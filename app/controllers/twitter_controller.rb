@@ -24,7 +24,7 @@ class TwitterController < ApplicationController
     value_max = -10000
     @dislikes.each do |dislike|
       p dislike
-      t = client.search(dislike.name, :lang => "en").take(1).collect
+      t = client.search(dislike.name, :lang => "en").take(20).collect
       aux = ''
 =begin
   t.each do |x|

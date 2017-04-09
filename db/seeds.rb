@@ -50,8 +50,8 @@ Topic.create(name: "Siria Crisis",
             votes: "10800",
             user_id: 3,
             description: "BS",
-            lat: -36.2065528,
-            lon: 37.0785447,
+            lat: 34.7988324,
+            lon: 36.8025563,
             weight:1)
 
 
