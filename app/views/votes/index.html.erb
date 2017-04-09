@@ -1,8 +1,6 @@
 <% provide(:title, 'Votes') %>
 
 	<%@votes.each do |vote|%>
-		<% descript = vote.user_id.to_s + " voted for " + vote.topic_id.to_s %>
+		<% descript = User.find(vote.user_id).name + " voted for " + Topic.find(vote.topic_id).name %>
 		<h2><%= link_to descript , vote_path(vote)%></h2>
 	<% end %>
-
-	<%= link_to "Add Vote", new_vote_path %>

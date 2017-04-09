@@ -51,6 +51,6 @@ Topic.create(name: "Piscola",
             lat: -34.6155729,
             lon: -58.5033605,weight:1)
 
-Vote.create(user_id: 1, topic_id: 0)
-Vote.create(user_id: 0, topic_id: 2)
-Vote.create(user_id: 2, topic_id: 1)
+Vote.create(user_id: 1, topic_id: 1)
+Vote.create(user_id: 3, topic_id: 2)
+Vote.create(user_id: 2, topic_id: 3)
