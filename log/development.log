@@ -12495,3 +12495,534 @@ Completed 200 OK in 48ms (Views: 21.8ms | ActiveRecord: 0.3ms)
 Completed 200 OK in 46ms (Views: 18.7ms | ActiveRecord: 0.5ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[35m (182.9ms)[0m  [1m[35mDROP TABLE "topics"[0m
+  [1m[35m (78.5ms)[0m  [1m[35mCREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "votes" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" text, "lat" float, "lon" float)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (29.1ms)[0m  [1m[35mCREATE  INDEX "index_topics_on_user_id" ON "topics" ("user_id")[0m
+  [1m[35m (19.5ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (95.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar)[0m
+  [1m[35m (49.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.4ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (113.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (81.7ms)[0m  [1m[35mDROP TABLE "votes"[0m
+  [1m[35m (78.3ms)[0m  [1m[35mCREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "topic_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (93.8ms)[0m  [1m[35mCREATE  INDEX "index_votes_on_topic_id" ON "votes" ("topic_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_votes_on_topic_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_votes_on_topic_id' AND type='index'
+[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE  INDEX "index_votes_on_user_id" ON "votes" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE "topics"[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "votes" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "description" text, "lat" float, "lon" float)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (23.3ms)[0m  [1m[35mCREATE  INDEX "index_topics_on_user_id" ON "topics" ("user_id")[0m
+  [1m[35m (3.7ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE "votes"[0m
+  [1m[35m (26.4ms)[0m  [1m[35mCREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "topic_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX "index_votes_on_topic_id" ON "votes" ("topic_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_votes_on_topic_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_votes_on_topic_id' AND type='index'
+[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE  INDEX "index_votes_on_user_id" ON "votes" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "vjfuenzalida@uc.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?, ?)[0m  [["email", "vjfuenzalida@uc.cl"], ["encrypted_password", "$2a$11$jzGIbBmNNfAppBa7OLQSfeCL1GNUKwF6IWYKs7VH8vfVO1ZRh6I.q"], ["created_at", 2017-04-09 04:38:59 UTC], ["updated_at", 2017-04-09 04:38:59 UTC], ["name", "Vicente Fuenzalida"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "djpassi@uc.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?, ?)[0m  [["email", "djpassi@uc.cl"], ["encrypted_password", "$2a$11$MxCeBTsr1J3x2Lka5c1ieOyF9KXF6KwZw5ruZ2JDIhlTajpM3GPPm"], ["created_at", 2017-04-09 04:38:59 UTC], ["updated_at", 2017-04-09 04:38:59 UTC], ["name", "Diego Passi"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dagalemiri@uc.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?, ?)[0m  [["email", "dagalemiri@uc.cl"], ["encrypted_password", "$2a$11$Pyn8DVq562isM/aRpgS/5u1Gdl5AZr1uLhq0CFz15lKRrAe2glICe"], ["created_at", 2017-04-09 04:38:59 UTC], ["updated_at", 2017-04-09 04:38:59 UTC], ["name", "David Galemiri"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "topics" ("name", "votes", "user_id", "created_at", "updated_at", "description", "lat", "lon") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Trump"], ["votes", 124], ["user_id", 1], ["created_at", 2017-04-09 04:38:59 UTC], ["updated_at", 2017-04-09 04:38:59 UTC], ["description", "U.S. New President"], ["lat", 42.7364892], ["lon", -78.0525167]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "topics" ("name", "votes", "user_id", "created_at", "updated_at", "description", "lat", "lon") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "AFP"], ["votes", 4413], ["user_id", 2], ["created_at", 2017-04-09 04:38:59 UTC], ["updated_at", 2017-04-09 04:38:59 UTC], ["description", "Chilean Pension System not working as expected"], ["lat", -33.4442], ["lon", -70.9100213]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "topics" ("name", "votes", "user_id", "created_at", "updated_at", "description", "lat", "lon") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Piscola"], ["votes", 1000], ["user_id", 3], ["created_at", 2017-04-09 04:38:59 UTC], ["updated_at", 2017-04-09 04:38:59 UTC], ["description", "Not that good when prepared with Diet Coke"], ["lat", -34.6155729], ["lon", -58.5033605]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "votes" ("user_id", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["topic_id", 0], ["created_at", 2017-04-09 04:38:59 UTC], ["updated_at", 2017-04-09 04:38:59 UTC]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "votes" ("user_id", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 0], ["topic_id", 2], ["created_at", 2017-04-09 04:38:59 UTC], ["updated_at", 2017-04-09 04:38:59 UTC]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "votes" ("user_id", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["topic_id", 1], ["created_at", 2017-04-09 04:38:59 UTC], ["updated_at", 2017-04-09 04:38:59 UTC]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/topics" for ::1 at 2017-04-09 01:39:22 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TopicsController#index as HTML
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 28ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Topic with 'id'=):
+  
+app/controllers/topics_controller.rb:6:in `index'
+  Rendering /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.8ms)
+  Rendering /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (75.5ms)
+Started GET "/" for ::1 at 2017-04-09 01:39:30 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 401 Unauthorized in 5255ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-09 01:39:44 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_navbar.html.erb (3.6ms)
+Completed 200 OK in 952ms (Views: 938.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-09 01:39:45 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navbar.html.erb (2.0ms)
+Completed 200 OK in 115ms (Views: 111.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/topics/display" for ::1 at 2017-04-09 01:39:47 -0300
+Processing by TopicsController#display as HTML
+  Rendering topics/display.html.erb within layouts/application
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  Rendered topics/display.html.erb within layouts/application (12.8ms)
+  Rendered layouts/_navbar.html.erb (2.2ms)
+Completed 200 OK in 179ms (Views: 124.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/votes" for ::1 at 2017-04-09 01:39:49 -0300
+Processing by VotesController#index as HTML
+  Rendering votes/index.html.erb within layouts/application
+  [1m[36mVote Load (0.2ms)[0m  [1m[34mSELECT "votes".* FROM "votes"[0m
+  Rendered votes/index.html.erb within layouts/application (8.8ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+Completed 200 OK in 121ms (Views: 113.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/maps/show" for ::1 at 2017-04-09 01:39:50 -0300
+Processing by MapsController#show as HTML
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  Rendering maps/show.html.erb within layouts/application
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  Rendered maps/show.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navbar.html.erb (2.2ms)
+Completed 200 OK in 126ms (Views: 117.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/topics?id=1" for ::1 at 2017-04-09 01:39:51 -0300
+Processing by TopicsController#index as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/topics?id=2" for ::1 at 2017-04-09 01:39:51 -0300
+  Rendering topics/index.json.jbuilder
+Processing by TopicsController#index as JSON
+Started GET "/topics?id=3" for ::1 at 2017-04-09 01:39:51 -0300
+  Parameters: {"id"=>"2"}
+Processing by TopicsController#index as JSON
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Parameters: {"id"=>"3"}
+  [1m[36mTopic Load (0.6ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered topics/index.json.jbuilder (110.0ms)
+  Rendering topics/index.json.jbuilder
+Completed 200 OK in 185ms (Views: 157.1ms | ActiveRecord: 0.2ms)
+
+
+  Rendered topics/index.json.jbuilder (1.2ms)
+  Rendering topics/index.json.jbuilder
+Completed 200 OK in 129ms (Views: 102.3ms | ActiveRecord: 0.4ms)
+
+
+  Rendered topics/index.json.jbuilder (0.8ms)
+Completed 200 OK in 78ms (Views: 48.7ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/topics/2" for ::1 at 2017-04-09 01:40:13 -0300
+Processing by TopicsController#update as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "topics" SET "votes" = ?, "updated_at" = ? WHERE "topics"."id" = ?[0m  [["votes", 4414], ["updated_at", 2017-04-09 04:40:13 UTC], ["id", 2]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  Rendering topics/update.html.erb within layouts/application
+  Rendered topics/update.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+Completed 200 OK in 285ms (Views: 196.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/topics?id=2" for ::1 at 2017-04-09 01:40:14 -0300
+Processing by TopicsController#index as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started PATCH "/topics/2" for ::1 at 2017-04-09 01:40:14 -0300
+Processing by TopicsController#update as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "topics" SET "votes" = ?, "updated_at" = ? WHERE "topics"."id" = ?[0m  [["votes", 4415], ["updated_at", 2017-04-09 04:40:14 UTC], ["id", 2]]
+  [1m[35m (7.7ms)[0m  [1m[36mcommit transaction[0m
+  Rendering topics/index.json.jbuilder
+  Rendered topics/index.json.jbuilder (0.6ms)
+Completed 200 OK in 116ms (Views: 66.6ms | ActiveRecord: 0.3ms)
+
+
+  Rendering topics/update.html.erb within layouts/application
+  Rendered topics/update.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+Completed 200 OK in 229ms (Views: 165.4ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/topics?id=2" for ::1 at 2017-04-09 01:40:14 -0300
+Processing by TopicsController#index as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering topics/index.json.jbuilder
+  Rendered topics/index.json.jbuilder (0.7ms)
+Completed 200 OK in 49ms (Views: 27.3ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/topics/2" for ::1 at 2017-04-09 01:40:14 -0300
+Processing by TopicsController#update as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "topics" SET "votes" = ?, "updated_at" = ? WHERE "topics"."id" = ?[0m  [["votes", 4416], ["updated_at", 2017-04-09 04:40:14 UTC], ["id", 2]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  Rendering topics/update.html.erb within layouts/application
+  Rendered topics/update.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+Completed 200 OK in 179ms (Views: 142.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/topics?id=2" for ::1 at 2017-04-09 01:40:14 -0300
+Processing by TopicsController#index as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering topics/index.json.jbuilder
+  Rendered topics/index.json.jbuilder (0.8ms)
+Completed 200 OK in 49ms (Views: 28.9ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/topics/2" for ::1 at 2017-04-09 01:40:14 -0300
+Processing by TopicsController#update as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "topics" SET "votes" = ?, "updated_at" = ? WHERE "topics"."id" = ?[0m  [["votes", 4417], ["updated_at", 2017-04-09 04:40:14 UTC], ["id", 2]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  Rendering topics/update.html.erb within layouts/application
+  Rendered topics/update.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+Completed 200 OK in 172ms (Views: 141.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/topics?id=2" for ::1 at 2017-04-09 01:40:14 -0300
+Processing by TopicsController#index as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering topics/index.json.jbuilder
+  Rendered topics/index.json.jbuilder (0.5ms)
+Completed 200 OK in 48ms (Views: 28.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/topics/2" for ::1 at 2017-04-09 01:40:15 -0300
+Processing by TopicsController#update as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "topics" SET "votes" = ?, "updated_at" = ? WHERE "topics"."id" = ?[0m  [["votes", 4418], ["updated_at", 2017-04-09 04:40:15 UTC], ["id", 2]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  Rendering topics/update.html.erb within layouts/application
+  Rendered topics/update.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+Completed 200 OK in 165ms (Views: 134.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/topics?id=2" for ::1 at 2017-04-09 01:40:15 -0300
+Processing by TopicsController#index as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering topics/index.json.jbuilder
+  Rendered topics/index.json.jbuilder (0.7ms)
+Completed 200 OK in 49ms (Views: 28.7ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/topics/2" for ::1 at 2017-04-09 01:40:15 -0300
+Processing by TopicsController#update as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "topics" SET "votes" = ?, "updated_at" = ? WHERE "topics"."id" = ?[0m  [["votes", 4419], ["updated_at", 2017-04-09 04:40:15 UTC], ["id", 2]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  Rendering topics/update.html.erb within layouts/application
+  Rendered topics/update.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+Completed 200 OK in 166ms (Views: 139.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/topics?id=2" for ::1 at 2017-04-09 01:40:15 -0300
+Processing by TopicsController#index as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering topics/index.json.jbuilder
+  Rendered topics/index.json.jbuilder (0.6ms)
+Completed 200 OK in 49ms (Views: 29.0ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/topics/2" for ::1 at 2017-04-09 01:40:15 -0300
+Processing by TopicsController#update as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "topics" SET "votes" = ?, "updated_at" = ? WHERE "topics"."id" = ?[0m  [["votes", 4420], ["updated_at", 2017-04-09 04:40:15 UTC], ["id", 2]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  Rendering topics/update.html.erb within layouts/application
+  Rendered topics/update.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 159ms (Views: 128.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/topics?id=2" for ::1 at 2017-04-09 01:40:16 -0300
+Processing by TopicsController#index as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering topics/index.json.jbuilder
+  Rendered topics/index.json.jbuilder (0.9ms)
+Completed 200 OK in 53ms (Views: 30.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2017-04-09 01:50:53 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.5ms)
+Started GET "/" for ::1 at 2017-04-09 01:50:54 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navbar.html.erb (1.6ms)
+Completed 200 OK in 4250ms (Views: 4247.8ms | ActiveRecord: 0.0ms)
+
+
+  Rendered layouts/_navbar.html.erb (0.8ms)
+Completed 200 OK in 5455ms (Views: 5440.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/twitter/weighting" for ::1 at 2017-04-09 01:51:08 -0300
+Processing by TwitterController#weighting as HTML
+Completed 500 Internal Server Error in 138ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `all' for Dislike:Module):
+  
+app/controllers/twitter_controller.rb:18:in `weighting'
+  Rendering /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.2ms)
+  Rendering /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /DavidGalemiri.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (72.8ms)
+Started GET "/twitter/weighting" for ::1 at 2017-04-09 01:51:44 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TwitterController#weighting as HTML
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  Rendering twitter/weighting.html.erb within layouts/application
+  Rendered twitter/weighting.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_navbar.html.erb (2.8ms)
+Completed 200 OK in 7740ms (Views: 936.0ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddWeightToTopics (20170409045526)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "topics" ADD "weight" float[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170409045526"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_topics_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_topics_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_votes_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_votes_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_votes_on_topic_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_votes_on_topic_id' AND type='index'
+[0m
+Started GET "/twitter/weighting" for ::1 at 2017-04-09 02:01:10 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TwitterController#weighting as HTML
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  Rendering twitter/weighting.html.erb within layouts/application
+  Rendered twitter/weighting.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navbar.html.erb (2.9ms)
+Completed 200 OK in 8165ms (Views: 519.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/twitter/weighting" for ::1 at 2017-04-09 02:03:35 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TwitterController#weighting as HTML
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."name" = ? LIMIT ?[0m  [["name", "Trump"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "topics" SET "weight" = ?, "updated_at" = ? WHERE "topics"."id" = ?[0m  [["weight", 0.05], ["updated_at", 2017-04-09 05:03:43 UTC], ["id", 1]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."name" = ? LIMIT ?[0m  [["name", "AFP"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "topics" SET "weight" = ?, "updated_at" = ? WHERE "topics"."id" = ?[0m  [["weight", 1.0], ["updated_at", 2017-04-09 05:03:43 UTC], ["id", 2]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."name" = ? LIMIT ?[0m  [["name", "Piscola"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "topics" SET "weight" = ?, "updated_at" = ? WHERE "topics"."id" = ?[0m  [["weight", 0.05], ["updated_at", 2017-04-09 05:03:43 UTC], ["id", 3]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  Rendering twitter/weighting.html.erb within layouts/application
+  Rendered twitter/weighting.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navbar.html.erb (2.9ms)
+Completed 200 OK in 8420ms (Views: 521.8ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/twitter/weighting" for ::1 at 2017-04-09 02:04:32 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TwitterController#weighting as HTML
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."name" = ? LIMIT ?[0m  [["name", "Trump"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "topics" SET "updated_at" = ?, "weight" = ? WHERE "topics"."id" = ?[0m  [["updated_at", 2017-04-09 05:04:38 UTC], ["weight", 1.0], ["id", 1]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."name" = ? LIMIT ?[0m  [["name", "AFP"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "topics" SET "updated_at" = ?, "weight" = ? WHERE "topics"."id" = ?[0m  [["updated_at", 2017-04-09 05:04:38 UTC], ["weight", 0.05], ["id", 2]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."name" = ? LIMIT ?[0m  [["name", "Piscola"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "topics" SET "updated_at" = ?, "weight" = ? WHERE "topics"."id" = ?[0m  [["updated_at", 2017-04-09 05:04:38 UTC], ["weight", 0.938888864360229], ["id", 3]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  Rendering twitter/weighting.html.erb within layouts/application
+  Rendered twitter/weighting.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_navbar.html.erb (3.0ms)
+Completed 200 OK in 6779ms (Views: 533.9ms | ActiveRecord: 8.0ms)
+
+
+  [1m[36mTopic Load (2.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m

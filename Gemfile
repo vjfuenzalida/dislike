@@ -5,6 +5,15 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'twitter'
+
+gem 'google-cloud-language'
+
+gem 'googleauth'
+
+gem 'redis'
+
+
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'country_select'
 gem 'devise', '~> 4.2'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408224935) do
+ActiveRecord::Schema.define(version: 20170409045526) do
 
   create_table "topics", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170408224935) do
     t.text     "description"
     t.float    "lat"
     t.float    "lon"
+    t.float    "weight"
     t.index ["user_id"], name: "index_topics_on_user_id"
   end
 
