@@ -35,8 +35,8 @@ Topic.create(id: 0,
             votes: "124",
             user_id: 1,
             description: "U.S. New President",
-            lat: -33.4442,
-            lon: 70.4442)
+            lat: 42.7364892,
+            lon: -78.0525167)
 
 Topic.create(name: "AFP",
             id: 1,
@@ -44,15 +44,15 @@ Topic.create(name: "AFP",
             user_id: 2,
             description: "Chilean Pension System not working as expected",
             lat: -33.4442,
-            lon: 70.4442)
+            lon: -70.9100213)
 
-Topic.create(name: "Piscola",
+Topic.create(name: "Messi",
             votes: "124",
             id: 2,
             user_id: 3,
             description: "Not that good when prepared with Diet Coke",
-            lat: -33.4442,
-            lon: 70.4442)
+            lat: -34.6155729,
+            lon: -58.5033605)
 
 Vote.create(user_id: 1, topic_id: 0, id: 0)
 Vote.create(user_id: 0, topic_id: 2, id: 1)
