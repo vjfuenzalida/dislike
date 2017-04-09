@@ -1,9 +1,13 @@
 class TopicsController < ApplicationController
-  before_action :get_topics, only: [:show, :index]
+  before_action :get_topics, only: [:show, :display]
   before_action :set_topic, only: [:show, :update, :edit, :destroy]
 
   def index
     @topic = Topic.find(params[:id])
+  end
+
+  def display
+    @topics = Topic.all
   end
 
   def show

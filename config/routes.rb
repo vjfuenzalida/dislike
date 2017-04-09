@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'maps', to: "maps#index"
   get 'maps/show', to: "maps#show"
+  get 'topics/display', to: "topics#display"
 
   resources :topics
   resources :votes

@@ -31,8 +31,7 @@
         });
         var markers = []
         var circles = []
-        for (var i = 0; i < <%= @topics.length%>; i++) {
-          console.log(i);
+        for (var i = 1; i < <%= @topics.length + 1%>; i++) {
           (function(i) {
           $.ajax({
                 url: "/topics",

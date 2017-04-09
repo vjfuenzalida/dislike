@@ -1,7 +1,7 @@
 <% provide(:title, 'Votes') %>
 
 	<%@votes.each do |vote|%>
-		<% descript = vote.user.name + " voted for " + vote.topic.name %>
+		<% descript = vote.user_id.to_s + " voted for " + vote.topic_id.to_s %>
 		<h2><%= link_to descript , vote_path(vote)%></h2>
 	<% end %>
 
