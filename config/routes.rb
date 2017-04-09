@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'maps/show'
+  get 'maps', to: "maps#index"
 
   resources :topics
   resources :votes

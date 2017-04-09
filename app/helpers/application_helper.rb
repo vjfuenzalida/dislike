@@ -9,4 +9,8 @@ module ApplicationHelper
     end
   end
 
+  def active_class(c, i)
+    current_page?(controller: c, action: i) ? "active" : ""
+  end
+
 end

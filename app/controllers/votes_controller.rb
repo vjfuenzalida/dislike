@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-  
+
   def index
     @votes = Vote.all
   end
@@ -16,4 +16,6 @@ class VotesController < ApplicationController
 
   def destroy
   end
+
+
 end
