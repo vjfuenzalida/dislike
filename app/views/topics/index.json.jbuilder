@@ -1,1 +1,1 @@
-json.(@topic, :votes, :lat, :lon)
+json.(@topic, :points, :lat, :lon)

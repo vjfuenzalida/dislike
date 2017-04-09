@@ -31,26 +31,26 @@ User.create(name: "David Galemiri",
 
 
 Topic.create(name: "Trump",
-            votes: "124",
+            points: 124,
             user_id: 1,
             description: "U.S. New President",
             lat: 42.7364892,
             lon: -78.0525167)
 
 Topic.create(name: "AFP",
-            votes: "4413",
+            points: 4413,
             user_id: 2,
             description: "Chilean Pension System not working as expected",
             lat: -33.4442,
             lon: -70.9100213)
 
 Topic.create(name: "Piscola",
-            votes: "1000",
+            points: 1000,
             user_id: 3,
             description: "Not that good when prepared with Diet Coke",
             lat: -34.6155729,
             lon: -58.5033605)
 
-Vote.create(user_id: 1, topic_id: 0)
-Vote.create(user_id: 0, topic_id: 2)
+Vote.create(user_id: 1, topic_id: 3)
+Vote.create(user_id: 3, topic_id: 2)
 Vote.create(user_id: 2, topic_id: 1)

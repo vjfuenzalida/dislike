@@ -9,8 +9,10 @@ module ApplicationHelper
     end
   end
 
-  def active_class(c, i)
-    current_page?(controller: c, action: i) ? "active" : ""
+  def active_class(route)
+    if route == "votes" || route == "topics" ||  route== "maps"
+      current_page?(route) ? "active" : ""
+    end
   end
 
 end

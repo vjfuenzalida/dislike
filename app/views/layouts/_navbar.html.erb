@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" style="font-family:'Comfortaa'; color: #0d3666;font-size: 2.5em;" href="/">
+      <a class="navbar-brand" style="font-family:'Josefin Sans'; color: #0d3666;font-size: 2.7em;" href="/maps/show">
          <span><img alt="Brand" src="/logo.png"></span>
          Dislike
 
@@ -18,25 +18,23 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-            <li class="<%= active_class('topics', 'display') %>"><a href="/topics/display"> Topics</a></li>
-            <li class="<%= active_class('votes', 'index') %>"><a href="/votes"> Votes</a></li>
-            <li class="<%= active_class('maps', 'show') %>"><a href="/maps/show"> Maps</a></li>
+            <li class="<%= active_class('maps/show') %>"><a href="/maps/show"> Maps</a></li>
+            <li class="<%= active_class('topics/new') %>"><a href="/topics/new"> Topics</a></li>
+            <li class="<%= active_class('votes') %>"><a href="/votes"> Votes</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <form class="navbar-form navbar-left">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Topic Name">
-          </div>
-          <button type="submit" class="btn btn-default">Search</button>
-        </form>
-        <li><a href="/users/sign_up">Profile</a></li>
+      <ul class="nav navbar-nav navbar-right">        
+        <%if user_signed_in?%>
+            <li><%= link_to "Perfil", user_path(current_user.id)%></li>
+        <% else %>
+            <li><a href="/users/sign_up">Profile</a></li>
+        <% end %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Sign In</a></li>
-            <li><a href="#">Sign Up</a></li>
+            <li><%= link_to "Sign Up", new_user_registration_path%></li>
+            <li><%= link_to "Sign In", new_user_session_path%></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Logout</a></li>
+            <li><%= link_to "Logout", destroy_user_session_path %></li>
           </ul>
         </li>
       </ul>

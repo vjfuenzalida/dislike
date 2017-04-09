@@ -40,7 +40,7 @@
                 dataType: "json",
                 success: function(data) {
                   var topico = data;
-                  var new_quantity = data.votes;
+                  var new_quantity = data.points;
                   circles[i] =  new google.maps.Circle({
                         strokeColor: '#FF0000',
                         strokeOpacity: 0.8,
@@ -71,7 +71,7 @@
                                                data: {id: this1},
                                                dataType: "json",
                                                success: function(data) {
-                                                   var new_quantity2 = data.votes;
+                                                   var new_quantity2 = data.points;
                                                    console.log(new_quantity2)
                                                    circles[this1].setRadius(new_quantity2*100)
                                                      }

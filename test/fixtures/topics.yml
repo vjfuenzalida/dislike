@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  votes: 1
-  references: 
+  points: 1
+  references:
 
 two:
   name: MyString
-  votes: 1
-  references: 
+  points: 1
+  references:

@@ -1,9 +1,28 @@
 <% provide(:title, 'New Topic') %>
 <div class="row">
-    <div class="col-sm-4"></div>
+    <div class="col-sm-6" style="text-align: left; margin-left:15px">
+      <table class="table forum table-striped">
+        <thead>
+          <tr>
+            <th class="cell-stat-2x hidden-xs hidden-sm">Topic</th>
+            <th class="cell-stat-2x hidden-xs hidden-sm">Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @topics.each do |topic| %>
+            <tr>
+              <td class="cell-stat-2x hidden-xs hidden-sm"><%= topic.name %></td>
+              <td class="cell-stat-2x hidden-xs hidden-sm"><%= topic.description %></td>              
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-1"></div>
     <div class="col-sm-4">
       <h1>New Topic</h1>
     	<%= render 'form' %>
     </div>
-    <div class="col-sm-4"></div>
+    <div class="col-sm-1"></div>
 </div>

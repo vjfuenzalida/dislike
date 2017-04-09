@@ -16,12 +16,15 @@ class TopicsController < ApplicationController
   end
 
   def new
+    @topics = Topic.all
     @topic = Topic.new
   end
 
   def create
     @topic = Topic.new(topic_params)
     @topic.save
+    @topics = Topic.all
+    render new_topic_path
   end
 
   def edit
@@ -30,7 +33,7 @@ class TopicsController < ApplicationController
 
   def update
     @descontento = Topic.find(params[:id])
-    @descontento.votes += 1
+    @descontento.points += 1
     @descontento.save
   end
 
@@ -48,7 +51,7 @@ class TopicsController < ApplicationController
     end
 
     def topic_params
-      params.require(:topic).permit(:name, :description, :votes, :user_id, :lat, :lon)
+      params.require(:topic).permit(:name, :description, :points, :user_id, :lat, :lon)
     end
 
 end

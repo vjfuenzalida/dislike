@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'maps', to: "maps#index"
   get 'maps/show', to: "maps#show"
   get 'topics/display', to: "topics#display"
 
@@ -7,8 +6,8 @@ Rails.application.routes.draw do
   resources :votes
 
   devise_for :users
-  root 'home#index'
-
+  root 'maps#show'
+  resources :users, :only => [:show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

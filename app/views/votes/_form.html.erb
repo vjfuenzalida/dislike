@@ -1,6 +1,6 @@
 <%= simple_form_for(@vote) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :user_id, collection: @users, label_method: :name, label_value: :id, include_blank: false, label: "Creator"%>
-  <%= f.input :topic_id, collection: @topics, label_method: :name, label_value: :id, include_blank: false, label: "Topic"%>
+  <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id} %>
+  <%= f.association :topic, :collection => Topic.all, :label_method => :name, :value_method => :id%>
   <%= f.button :submit, "Create Vote", :class => 'btn btn-success' %>
 <% end %>
