@@ -95,14 +95,6 @@ Topic.create(name: "Polution",
             lon: 120.9162757,
             weight:1)
 
-
-
-
-Vote.create(user_id: 1, topic_id: 1)
-Vote.create(user_id: 3, topic_id: 2)
-Vote.create(user_id: 2, topic_id: 3)
-<<<<<<< HEAD
-=======
 Vote.create(user_id: 4, topic_id: 1)
 Vote.create(user_id: 5, topic_id: 2)
 Vote.create(user_id: 6, topic_id: 3)
@@ -112,4 +104,3 @@ Vote.create(user_id: 9, topic_id: 3)
 Vote.create(user_id: 1, topic_id: 1)
 Vote.create(user_id: 3, topic_id: 2)
 Vote.create(user_id: 10, topic_id: 3)
->>>>>>> 908cba9ad72595f17f9eece6d0c82fa519c4ea0a
