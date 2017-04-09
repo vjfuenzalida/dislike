@@ -24,13 +24,16 @@
 
     <script>
       var map;
+
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: new google.maps.LatLng(0,0),
-          zoom:0
+          center: new google.maps.LatLng(-33.455670, -70.668291),
+          zoom: 3
         });
         var markers = []
         var circles = []
+        var colors = ['#dd0000', '#c10000', '#b00000', '#a10101','#980000', '#ffc04c', '#faad58', '#f59a64', '#f0866f', '#eb737b'];
+
         for (var i = 1; i < <%= @topics.length + 1%>; i++) {
           (function(i) {
           $.ajax({
@@ -45,18 +48,24 @@
                         strokeColor: '#FF0000',
                         strokeOpacity: 0.8,
                         strokeWeight: 2,
-                        fillColor: '#FF0000',
-                        fillOpacity: 0.35,
+                        fillColor: colors[i],
+                        fillOpacity: 0.9,
                         map: map,
                         center: new google.maps.LatLng(parseFloat(topico.lat), parseFloat(topico.lon)),
-                        radius: new_quantity*100
+                        radius: new_quantity*(data.weight*20)**2
                       });
                       console.log(parseFloat(topico.lat))
                       markers[i] = new google.maps.Marker({
                         position: new google.maps.LatLng(parseFloat(topico.lat), parseFloat(topico.lon)),
                         map: map,
-                        icon : 'https://cdn2.iconfinder.com/data/icons/flatte-social-networks-part-2/80/15_-_Thumb_down-128.png',
-                        title: 'Hello World!'
+                        icon : { url: "http://icons.iconarchive.com/icons/graphicloads/flat-finance/256/dislike-icon.png",
+                                scaledSize: new google.maps.Size(50, 50),
+                              labelOrigin: new google.maps.Point(25, 60)},
+                                label: {
+            color: 'black',
+            fontWeight: 'bold',
+            text: data.name
+          },
                       });
                   console.log(i);
                   (function(marker, this1){
@@ -71,9 +80,10 @@
                                                data: {id: this1},
                                                dataType: "json",
                                                success: function(data) {
+                                                  console.log(data);
                                                    var new_quantity2 = data.votes;
                                                    console.log(new_quantity2)
-                                                   circles[this1].setRadius(new_quantity2*100)
+                                                   circles[this1].setRadius(new_quantity2*(data.weight*20)**2)
                                                      }
                                                    });
                                                  }
