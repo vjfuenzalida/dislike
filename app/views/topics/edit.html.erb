@@ -1,2 +1,6 @@
-<h1>Topics#edit</h1>
-<p>Find me in app/views/topics/edit.html.erb</p>
+<h1>Editing Topic</h1>
+
+<%= render 'form', topic: @topic %>
+
+<%= link_to 'Show', @topic %> |
+<%= link_to 'Back', topics_path %>

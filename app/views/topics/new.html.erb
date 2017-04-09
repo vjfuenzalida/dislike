@@ -1,2 +1,9 @@
-<h1>Topics#new</h1>
-<p>Find me in app/views/topics/new.html.erb</p>
+<% provide(:title, 'New Topic') %>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <h1>New Topic</h1>
+    	<%= render 'form' %>
+    </div>
+    <div class="col-sm-4"></div>
+</div>

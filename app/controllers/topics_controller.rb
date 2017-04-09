@@ -10,15 +10,37 @@ class TopicsController < ApplicationController
   end
 
   def new
+    @topic = Topic.new
   end
 
   def create
+    @topic = Topic.new(topic_params)
+
+    respond_to do |format|
+      if @topic.save
+        format.html { redirect_to topics_path, notice: 'Topic was successfully created.' }
+        format.json { render :show, status: :created, location: @topic }
+      else
+        format.html { render :new }
+        format.json { render json: @topic.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
+    @users = User.all
   end
 
   def update
+    respond_to do |format|
+      if @topic.update(topic_params)
+        format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
+        format.json { render :show, status: :ok, location: @topic }
+      else
+        format.html { render :edit }
+        format.json { render json: @topic.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
@@ -32,6 +54,10 @@ class TopicsController < ApplicationController
 
     def set_topic
       @topic = Topic.find(params[:id])
+    end
+
+    def topic_params
+      params.require(:topic).permit(:name, :description, :votes, :user_id, :lat, :lon)
     end
 
 end

@@ -1,2 +1,9 @@
-<h1>Votes#new</h1>
-<p>Find me in app/views/votes/new.html.erb</p>
+<% provide(:title, 'New Vote') %>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <h1>New Vote</h1>
+    	<%= render 'form' %>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
