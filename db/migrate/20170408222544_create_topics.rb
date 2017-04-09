@@ -3,7 +3,7 @@ class CreateTopics < ActiveRecord::Migration[5.0]
     create_table :topics do |t|
       t.string :name
       t.integer :votes
-      t.references :user, foreign_key: true
+      t.references :user
 
       t.timestamps
     end
