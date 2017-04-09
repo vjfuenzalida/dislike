@@ -30,7 +30,7 @@ class TopicsController < ApplicationController
 
   def update
     @descontento = Topic.find(params[:id])
-    @descontento.votes += 1
+    @descontento.votes += 1000
     @descontento.save
   end
 
