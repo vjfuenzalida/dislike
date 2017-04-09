@@ -81,6 +81,10 @@ class TwitterController < ApplicationController
         t.weight = value
         t.save
       end
+
+      @topics = Topic.all
+      render '/maps/show'
   end
+
 
 end

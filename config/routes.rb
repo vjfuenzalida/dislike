@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'maps', to: "maps#index"
   get 'maps/show', to: "maps#show"
   get 'topics/display', to: "topics#display"
-  get 'twitter/weighting'
+  get 'twitter/weighting', to: "twitter#weighting"
 
   resources :topics
   resources :votes
